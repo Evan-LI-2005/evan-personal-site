@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="李梦丞（橙子 / Evan）的个人空间：澳门科技大学市场营销学生，记录 AI 学习、网球、美声与茶室日常。">
   <title>李梦丞 · 个人空间</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=audience-polish">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css?v=uranus-music">
 </head>
 <body>
   <header class="header"><a class="brand" href="#home" aria-label="返回首页"><span class="brand-mark">✳</span><span id="brand-name">你的名字</span><span class="brand-dot">.</span></a><nav aria-label="主导航"><a href="#about">关于</a><a href="#journey">经历</a><a href="#work">作品</a><a href="#contact" class="nav-contact">聊聊 <span aria-hidden="true">↗</span></a></nav></header>
@@ -23,6 +23,14 @@
   </main>
   <footer><a class="brand" href="#home"><span class="brand-mark">✳</span><span id="footer-name">你的名字</span><span class="brand-dot">.</span></a><span>保持好奇，持续生长。</span><a href="#home">回到顶部 ↑</a></footer>
   <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="关闭详情">×</button><p id="dialog-category" class="eyebrow"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><p id="dialog-detail" class="muted"></p><div id="dialog-tags" class="tags"></div></dialog>
-  <script src="content.js?v=audience-polish"></script><script src="planet3d.js"></script><script src="app.js?v=audience-polish"></script>
+
+  <aside class="music-player" aria-label="背景音乐">
+    <button id="music-toggle" type="button" aria-pressed="false">♫ 开启音乐</button>
+    <label class="music-volume">音量 <input id="music-volume" type="range" min="0" max="100" value="22" aria-label="背景音乐音量"></label>
+    <a href="https://commons.wikimedia.org/wiki/File:Holst-_uranus.ogg" target="_blank" rel="noopener">Holst · Uranus ↗</a>
+    <span id="music-status" class="sr-only" role="status"></span>
+  </aside>
+  <audio id="background-music" src="uranus-loop.mp3" loop preload="none"></audio>
+  <script src="content.js?v=uranus-music"></script><script src="planet3d.js"></script><script src="app.js?v=uranus-music"></script>
 </body>
 </html>

@@ -197,3 +197,26 @@ motionPreference.addEventListener('change', () => {
   frameId = null; startAnimation();
 });
 startAnimation();
+
+// Music starts only through an explicit visitor action.
+const music = document.querySelector('#background-music');
+const musicToggle = document.querySelector('#music-toggle');
+const musicStatus = document.querySelector('#music-status');
+const musicVolume = document.querySelector('#music-volume');
+music.volume = 0.22;
+function updateMusic() {
+  const playing = !music.paused;
+  musicToggle.textContent = playing ? 'Ⅱ 暂停音乐' : '♫ 开启音乐';
+  musicToggle.setAttribute('aria-pressed', String(playing));
+}
+musicToggle.addEventListener('click', async () => {
+  if (!music.paused) { music.pause(); return; }
+  musicToggle.disabled = true;
+  try { await music.play(); musicStatus.textContent = '背景音乐已开启'; }
+  catch { musicStatus.textContent = '音乐暂时无法播放，请稍后重试'; }
+  finally { musicToggle.disabled = false; updateMusic(); }
+});
+music.addEventListener('play', updateMusic);
+music.addEventListener('pause', updateMusic);
+music.addEventListener('error', () => { musicStatus.textContent = '音乐加载失败，请刷新后重试'; });
+musicVolume.addEventListener('input', () => { music.volume = Number(musicVolume.value) / 100; });
